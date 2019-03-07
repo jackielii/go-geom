@@ -41,5 +41,11 @@ func TestSignOfDet2x2(t *testing.T) {
 		if signOfDet != tc.sign {
 			t.Errorf("Test %v (%v, %v, %v, %v) failed: expected %v but was %v", i+1, tc.x1, tc.y1, tc.x2, tc.y2, tc.sign, signOfDet)
 		}
+
+		signOfDet = robustdeterminate.SignOfDet2x2S2(tc.x1, tc.y1, tc.x2, tc.y2)
+
+		if signOfDet != tc.sign {
+			t.Errorf("Test S2 version %v (%v, %v, %v, %v) failed: expected %v but was %v", i+1, tc.x1, tc.y1, tc.x2, tc.y2, tc.sign, signOfDet)
+		}
 	}
 }
